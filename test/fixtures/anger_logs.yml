@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  thought: MyString
+  feeling: MyString
+  anger_stage: 1
+  action: MyString
+  result: MyString
+  angered_at: 2019-05-14 21:02:22
+
+two:
+  title: MyString
+  thought: MyString
+  feeling: MyString
+  anger_stage: 1
+  action: MyString
+  result: MyString
+  angered_at: 2019-05-14 21:02:22
