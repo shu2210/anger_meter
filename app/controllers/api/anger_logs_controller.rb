@@ -1,4 +1,6 @@
 class Api::AngerLogsController < ApplicationController
+  protect_from_forgery except: %w[create update]
+
   def index
     @logs = AngerLog.order('angered_at DESC')
   end

@@ -1,5 +1,5 @@
 <template>
-  <div id="detail" class="container">
+  <div id="detail">
     <span class="title">
       <label>出来事：</label>メモを取ってなくて怒られた
     </span>

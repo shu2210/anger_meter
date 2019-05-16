@@ -18,3 +18,15 @@
 @import "materialize/components/color-variables";
 @import 'materialize';
 @import 'material_icons';
+
+.form-control-feedback {
+  margin: 5px 0;
+
+  .alert {
+    font-size: .8em;
+
+    &.alert-danger {
+      color: #f44336
+    }
+  }
+}
