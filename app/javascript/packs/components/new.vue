@@ -57,7 +57,7 @@
 
 <script>
 export default {
-  mounted() {
+  mounted: function () {
     $('select').formSelect();
   }
 }

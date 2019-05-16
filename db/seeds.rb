@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+3.times do
+  AngerLog.create(title: 'test', thought: 'test', feeling: 'test', anger_stage: 5, action: 'test', result: 'test', angered_at: Time.now)
+end

@@ -9,31 +9,44 @@
     </div>
     <div>
       <ul id="collection-id" class="collection">
-        <li id="row_log_1" class="collection-item">
+        <li v-for="log in logs" class="collection-item">
           <a href="#" class="secondary-content">
             <i class="material-icons">delete</i>
           </a>
-          <router-link to="/show" class="title">メモを取ってなくて怒られた</router-link>
-          <p class="angered-at"><time datetime="">2019-09-01</time></p>
-        </li>
-        <li id="row_log_1" class="collection-item">
-          <a href="#" class="secondary-content">
-            <i class="material-icons">delete</i>
-          </a>
-          <router-link to="/show" class="title">メモを取ってなくて怒られた</router-link>
-          <p class="angered-at"><time datetime="">2019-09-01</time></p>
-        </li>
-        <li id="row_log_1" class="collection-item">
-          <a href="#" class="secondary-content">
-            <i class="material-icons">delete</i>
-          </a>
-          <router-link to="/show" class="title">メモを取ってなくて怒られた</router-link>
-          <p class="angered-at"><time datetime="">2019-09-01</time></p>
+          <router-link to="/show" class="title">{{ log.title }}</router-link>
+          <p class="angered-at"><time datetime="">{{ log.angered_at }}</time></p>
         </li>
       </ul>
     </div>
   </div>
 </template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data: function () {
+    return {
+      logs: [],
+      newLog: ''
+    }
+  },
+  mounted: function () {
+    this.fetchLogs();
+  },
+  methods: {
+    fetchLogs: function () {
+      axios.get('/api/anger_logs').then((response) => {
+        for(var i = 0; i < response.data.logs.length; i++) {
+          this.logs.push(response.data.logs[i]);
+        }
+      }, (error) => {
+        console.log(error);
+      });
+    },
+  }
+}
+</script>
 
 <style scoped>
 .create-field {
