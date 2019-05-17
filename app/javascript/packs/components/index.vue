@@ -9,8 +9,8 @@
     </div>
     <div>
       <ul id="collection-id" class="collection">
-        <li v-for="log in logs" class="collection-item">
-          <a href="#" class="secondary-content">
+        <li v-for="log in logs" v-bind:id="'anger_log_' + log.id" class="collection-item">
+          <a class="secondary-content delete-log" v-on:click="deleteLog(log.id)">
             <i class="material-icons">delete</i>
           </a>
           <router-link :to="{ name: 'show', params: { id: log.id }}" class="title">{{ log.title }}</router-link>
@@ -18,6 +18,7 @@
         </li>
       </ul>
     </div>
+    <FlashMessage></FlashMessage>
   </div>
 </template>
 
@@ -46,6 +47,15 @@ export default {
         console.log(error);
       });
     },
+    deleteLog: function (id) {
+      axios.delete('/api/anger_logs/' + id).then((response) => {
+        this.flashMessage.success({title: '削除しました', message: 'ログの削除に成功しました'});
+        $('#anger_log_' + id).fadeOut();
+      }, (error) => {
+        this.flashMessage.error({title: 'エラーが発生しました', message: '予期しないエラーが発生しました'});
+        console.log(error);
+      });
+    },
   }
 }
 </script>
@@ -59,5 +69,9 @@ export default {
   font-size: 0.8em;
   color: #757575;
   margin: 5px 0;
+}
+
+.delete-log {
+  cursor: pointer;
 }
 </style>

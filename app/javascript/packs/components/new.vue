@@ -161,6 +161,7 @@ export default {
         }).then((response) => {
           this.flashMessage.success({title: 'ログを追加しました', message: '新しいログを作成しました。'});
         }, (error) => {
+          this.flashMessage.error({title: 'エラーが発生しました', message: '予期しないエラーが発生しました'});
           console.log(error);
         });
       });
