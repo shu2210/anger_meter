@@ -5,6 +5,10 @@ class Api::AngerLogsController < ApplicationController
     @logs = AngerLog.order('angered_at DESC')
   end
 
+  def show
+    @log = AngerLog.find(params[:id])
+  end
+
   def create
     @log = AngerLog.new(anger_log_params)
 

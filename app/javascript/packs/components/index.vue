@@ -13,8 +13,8 @@
           <a href="#" class="secondary-content">
             <i class="material-icons">delete</i>
           </a>
-          <router-link to="/show" class="title">{{ log.title }}</router-link>
-          <p class="angered-at"><time datetime="">{{ log.angered_at }}</time></p>
+          <router-link :to="{ name: 'show', params: { id: log.id }}" class="title">{{ log.title }}</router-link>
+          <p class="angered-at"><time datetime="">{{ log.angered_at | moment }}</time></p>
         </li>
       </ul>
     </div>
@@ -22,9 +22,11 @@
 </template>
 
 <script>
+import formattable from '../concern/date_formattable';
 import axios from 'axios';
 
 export default {
+  mixins: [ formattable ],
   data: function () {
     return {
       logs: [],

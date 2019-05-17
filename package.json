@@ -5,6 +5,7 @@
     "@rails/webpacker": "^4.0.2",
     "@smartweb/vue-flash-message": "^0.4.1",
     "axios": "^0.18.0",
+    "moment": "^2.24.0",
     "vee-validate": "^2.2.7",
     "vue": "^2.6.10",
     "vue-loader": "^15.7.0",
