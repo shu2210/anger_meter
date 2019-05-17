@@ -54,7 +54,7 @@ export default {
   methods: {
     fetchLog: function () {
       axios.get('/api/anger_logs/' + this.$route.params.id).then((response) => {
-        this.log = response.data.log
+        this.log = response.data
       }, (error) => {
         console.log(error);
       });

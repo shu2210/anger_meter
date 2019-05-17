@@ -3,10 +3,12 @@ class Api::AngerLogsController < ApplicationController
 
   def index
     @logs = AngerLog.order('angered_at DESC')
+    render json: @logs
   end
 
   def show
     @log = AngerLog.find(params[:id])
+    render json: @log
   end
 
   def create

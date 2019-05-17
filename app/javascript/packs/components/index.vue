@@ -39,8 +39,8 @@ export default {
   methods: {
     fetchLogs: function () {
       axios.get('/api/anger_logs').then((response) => {
-        for(var i = 0; i < response.data.logs.length; i++) {
-          this.logs.push(response.data.logs[i]);
+        for(var i = 0; i < response.data.length; i++) {
+          this.logs.push(response.data[i]);
         }
       }, (error) => {
         console.log(error);
