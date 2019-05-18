@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>If you want to contact me, you send mail to below address.</p>
-    <p>yasunaga.shuto@gmail.com</p>
+    <p>ご意見・感想などは<a href="http://s-yasunaga-portfolio.herokuapp.com/">こちら</a>のサイトからよろしくお願いします。</p>
   </div>
 </template>

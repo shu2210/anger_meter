@@ -1,13 +1,21 @@
 class Api::AngerLogsController < ApplicationController
+  protect_from_forgery except: %w[create update destroy]
+
   def index
     @logs = AngerLog.order('angered_at DESC')
+    render json: @logs
+  end
+
+  def show
+    @log = AngerLog.find(params[:id])
+    render json: @log
   end
 
   def create
     @log = AngerLog.new(anger_log_params)
 
     if @log.save
-      render :show, status: :created
+      render json: @log, status: :created
     else
       render json: @log.errors, status: :unprocessable_entity
     end
@@ -15,8 +23,19 @@ class Api::AngerLogsController < ApplicationController
 
   def update
     @log = AngerLog.find(params[:id])
+
     if @log.update(task_params)
-      render :show, status: :ok
+      render json: @log, status: :ok
+    else
+      render json: @log.errors, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @log = AngerLog.find(params[:id])
+
+    if @log.destroy
+      render json: @log, status: :ok
     else
       render json: @log.errors, status: :unprocessable_entity
     end

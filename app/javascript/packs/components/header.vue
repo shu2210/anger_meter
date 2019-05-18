@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  mounted() {
+  mounted: function () {
     $('.dropdown-trigger').dropdown();
   }
 }
