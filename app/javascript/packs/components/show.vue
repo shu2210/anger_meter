@@ -68,9 +68,15 @@ export default {
   margin-top: 15px;
 }
 
+.section label {
+  display: block;
+  vertical-align: top;
+}
+
 .section p {
   margin: 0;
-  display: inline-block;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 #title {
