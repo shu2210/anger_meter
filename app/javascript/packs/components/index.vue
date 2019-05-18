@@ -7,17 +7,18 @@
         </div>
       </router-link>
     </div>
-    <div>
-      <ul id="collection-id" class="collection">
-        <li v-for="log in logs" v-bind:id="'anger_log_' + log.id" class="collection-item">
+    <ul id="collection-id" class="collection">
+      <paginate name="logs" :list="logs" :per="5">
+        <li v-for="log in paginated('logs')" v-bind:id="'anger_log_' + log.id" class="collection-item">
           <a class="secondary-content delete-log" v-on:click="deleteLog(log.id)">
             <i class="material-icons">delete</i>
           </a>
           <router-link :to="{ name: 'show', params: { id: log.id }}" class="title">{{ log.title }}</router-link>
           <p class="angered-at"><time datetime="">{{ log.angered_at | moment }}</time></p>
         </li>
-      </ul>
-    </div>
+      </paginate>
+    </ul>
+    <paginate-links for="logs" class="pagination" :show-step-links="true"></paginate-links>
     <FlashMessage></FlashMessage>
   </div>
 </template>
@@ -30,6 +31,7 @@ export default {
   mixins: [ formattable ],
   data: function () {
     return {
+      paginate: ['logs'],
       logs: [],
       newLog: ''
     }

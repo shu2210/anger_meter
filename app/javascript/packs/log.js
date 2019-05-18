@@ -4,7 +4,9 @@ import Header from './components/header.vue'
 import VeeValidate from 'vee-validate';
 import VeeValidateLocaleJa from 'vee-validate/dist/locale/ja';
 import FlashMessage from '@smartweb/vue-flash-message';
+import VuePaginate from 'vue-paginate';
 
+Vue.use(VuePaginate);
 Vue.use(FlashMessage);
 Vue.use(VeeValidate, {
   locale: 'ja',
