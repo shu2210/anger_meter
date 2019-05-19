@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_05_14_120222) do
 
-  create_table "anger_logs", force: :cascade do |t|
+  create_table "anger_logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.string "thought", null: false
     t.string "feeling", null: false
