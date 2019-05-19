@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="list">
     <div class="row create-field">
       <router-link to="/new">
         <div class="btn-floating waves-effect waves-light red">
@@ -63,17 +63,17 @@ export default {
 </script>
 
 <style scoped>
-.create-field {
+#list >>> .create-field {
   margin: 15px 0;
 }
 
-.angered-at {
+#list >>> .angered-at {
   font-size: 0.8em;
   color: #757575;
   margin: 5px 0;
 }
 
-.delete-log {
+#list >>> .delete-log {
   cursor: pointer;
 }
 </style>
