@@ -25,4 +25,7 @@ test:
 
 production:
   <<: *default
-  database: anger_meter_production
+  database: heroku_3a20df513527518
+  username: bc0f35f3ac094a
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: us-cdbr-iron-east-02.cleardb.net
