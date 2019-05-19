@@ -62,18 +62,18 @@ export default {
 }
 </script>
 
-<style scoped>
-#list >>> .create-field {
+<style>
+.create-field {
   margin: 15px 0;
 }
 
-#list >>> .angered-at {
+.angered-at {
   font-size: 0.8em;
   color: #757575;
   margin: 5px 0;
 }
 
-#list >>> .delete-log {
+.delete-log {
   cursor: pointer;
 }
 </style>
